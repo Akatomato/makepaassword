@@ -9,10 +9,12 @@
 import UIKit
 
 var TodoKobetsunonakami = [String]()
+var PassName = [String]()
 
 class AddController: UIViewController {
     
    @IBOutlet weak var passwordlabel: UILabel!
+   @IBOutlet weak var passwordNameField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,9 +63,16 @@ class AddController: UIViewController {
         
         UserDefaults.standard.set( TodoKobetsunonakami, forKey: "TodoList" )
         
+        PassName.append(passwordNameField.text!)
+        
+        UserDefaults.standard.set( PassName, forKey: "passnameList" )
+        
         
         
     }
+    
+   
+
     
     
     
