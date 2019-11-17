@@ -58,4 +58,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //戻り値の設定（表示する中身)
         return TodoCell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
+    }
+
+    //スワイプしたセルを削除　
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            TodoKobetsunonakami.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+        }
+    }
+    
+    
 }
