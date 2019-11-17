@@ -24,11 +24,35 @@ class AddController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    func passwordmakere(digits: Int) -> String {
+        
+        var numberAlphabetArray: [String] = []
+        
+        for number in 0...9 {
+            numberAlphabetArray.append(String(number))
+        }
+        
+        let alphabetString = "abcdefghijklmnopqrstuvwxyz"
+        for alphabet in alphabetString {
+            numberAlphabetArray.append(String(alphabet))
+        }
+        
+        let shuffledNumberAlphabetArray = numberAlphabetArray.shuffled()
+        
+        var Newpassword = ""
+        
+        for index in 0...digits - 1 {
+            Newpassword += shuffledNumberAlphabetArray[index]
+            
+        }
+        return Newpassword
+    }
+    
     @IBAction func makeButten(_ sender: Any) {
         
-        let password = Int.random(in: 1111 ... 9999)
-    
-        passwordlabel.text = String(password)
+      
+        let Newpassword = passwordmakere(digits: 4)
+        passwordlabel.text = Newpassword
         
         
     }
@@ -37,9 +61,8 @@ class AddController: UIViewController {
     
     @IBAction func keta(_ sender: Any) {
         
-        let password = Int.random(in: 111111 ... 999999)
-        
-        passwordlabel.text = String(password)
+        let Newpassword = passwordmakere(digits: 6)
+               passwordlabel.text = Newpassword
         
         
     }
@@ -47,9 +70,8 @@ class AddController: UIViewController {
     
     @IBAction func kketa(_ sender: Any) {
         
-        let password = Int.random(in: 11111111 ... 99999999)
-        
-        passwordlabel.text = String(password)
+       let Newpassword = passwordmakere(digits: 8)
+              passwordlabel.text = Newpassword
         
     }
     
