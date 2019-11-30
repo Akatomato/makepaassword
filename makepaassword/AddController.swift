@@ -50,47 +50,34 @@ class AddController: UIViewController {
     
     @IBAction func makeButten(_ sender: Any) {
         
-      
         let Newpassword = passwordmakere(digits: 4)
         passwordlabel.text = Newpassword
-        
-        
     }
-    
-    
     
     @IBAction func keta(_ sender: Any) {
         
         let Newpassword = passwordmakere(digits: 6)
-               passwordlabel.text = Newpassword
-        
-        
+        passwordlabel.text = Newpassword
     }
-    
     
     @IBAction func kketa(_ sender: Any) {
         
-       let Newpassword = passwordmakere(digits: 8)
-              passwordlabel.text = Newpassword
-        
+        let Newpassword = passwordmakere(digits: 8)
+        passwordlabel.text = Newpassword
     }
-    
-    
-    
-    
     
     @IBAction func tuika(_ sender: Any) {
         
         TodoKobetsunonakami.append(passwordlabel.text!)
-        
         UserDefaults.standard.set( TodoKobetsunonakami, forKey: "TodoList" )
-        
         PassName.append(passwordNameField.text!)
-        
         UserDefaults.standard.set( PassName, forKey: "passnameList" )
         
-        
-        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func modoru() {
+        self.dismiss(animated: true, completion: nil)
     }
     
    

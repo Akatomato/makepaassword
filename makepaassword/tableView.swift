@@ -11,25 +11,25 @@ import UIKit
 //classの継承を追加
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    
-    
     @IBOutlet weak var tableView: UITableView!
-    
     
     //最初からあるコード
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         tableView.register(UINib(nibName: "PasswordTableViewCell", bundle:nil),forCellReuseIdentifier:"TodoCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         //追加画面で入力した内容を取得する
         if UserDefaults.standard.object(forKey: "TodoList") != nil {
             TodoKobetsunonakami = UserDefaults.standard.object(forKey: "TodoList") as! [String]
         }
-            
         if UserDefaults.standard.object(forKey: "passnameList") != nil {
             PassName = UserDefaults.standard.object(forKey: "passnameList") as! [String]
         }
+        tableView.reloadData()
     }
     
     //最初からあるコード
