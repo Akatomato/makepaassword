@@ -32,6 +32,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+            if UserDefaults.standard.object(forKey: "TodoList") != nil {
+                    TodoKobetsunonakami = UserDefaults.standard.object(forKey: "TodoList") as! [String]
+                }
+
+                if UserDefaults.standard.object(forKey: "passnameList") != nil {
+                    PassName = UserDefaults.standard.object(forKey: "passnameList") as! [String]
+                }
+                tableView.reloadData()
+            }
+    
+    
     //最初からあるコード
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

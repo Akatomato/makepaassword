@@ -90,9 +90,12 @@ class AddController: UIViewController {
         UserDefaults.standard.set( PassName, forKey: "passnameList" )
         
         
-        
+         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func modoru() {
+        self.dismiss(animated: true, completion: nil)
+    }
    
 
     
