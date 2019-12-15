@@ -81,27 +81,16 @@ class AddController: UIViewController {
     
     @IBAction func tuika(_ sender: Any) {
         
-        TodoKobetsunonakami.append(passwordlabel.text!)
+        TodoKobetsunonakami.insert(passwordlabel.text!, at: 0)
         
         UserDefaults.standard.set( TodoKobetsunonakami, forKey: "TodoList" )
         
-        PassName.append(passwordNameField.text!)
+        PassName.insert(passwordNameField.text!, at: 0)
         
         UserDefaults.standard.set( PassName, forKey: "passnameList" )
         
         
-         self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
     }
-    
-    @IBAction func modoru() {
-        self.dismiss(animated: true, completion: nil)
-    }
-   
-
-    
-    
-    
-   
-    
     
 }
